@@ -1,35 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// In a React application:
+// Create a Welcome function component that receives a name prop and renders the Welcome, {name}! message within a p tag.
+// Render this component to you App component, passing it a name prop of your choosing. Set a default value for the name prop.
+// Add a second prop called age and renders it below the 'welcome' message, within a p tag after the message "Your age is ".
+// Modify the value passed to the name prop so that it's contained within a strong tag.
+// Extract the "Your age is " message into a new component called Age and render it within the Welcome component.
+// Pass to the Age component the age prop that Welcome is receiving from the App component.
 
+import Welcome from "./Welcome";
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Welcome name="Giovanni" />
     </>
-  )
+  );
 }
-
-export default App
+export default App;
