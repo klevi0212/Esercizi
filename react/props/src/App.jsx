@@ -10,7 +10,7 @@ import Welcome from "./Welcome";
 function App() {
   return (
     <>
-      <Welcome name="Giovanni" />
+      <Welcome name="Giovanni" age={30} />
     </>
   );
 }
