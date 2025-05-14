@@ -12,16 +12,11 @@ import Message from "./Message";
 function Welcome({ name, age }) {
   return (
     <>
-      <p>Welcome, {name}</p>
-
-      {/* {age > 18 && <Age age={age} />}
-
-      {age !== undefined && <Age age={age} />}
-
-      {age > 18 && age < 65 && <Age age={age} />} */}
-
-      {/* {age > 18 && name === "John" && <Age age={age} />} */}
-
+      <p>Welcome, {name}!</p>
+      <p>{age > 18 && <Age age={age} />}</p>
+      <p>{age !== undefined && <Age age={age} />}</p>
+      <p>{age > 18 && age < 65 && <Age age={age} />}</p>
+      <p>{age > 18 && name === "John" && <Age age={age} />}</p>
       <Message age={age} />
     </>
   );
