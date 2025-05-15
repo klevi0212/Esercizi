@@ -1,9 +1,9 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { AlertClock } from "./AlertClock";
+import { App } from "./App";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AlertClock />
+    <App />
   </StrictMode>
 );
