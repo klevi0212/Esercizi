@@ -1,35 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// Create a Counter function component and create a new state variable called counter initialized to 0.
+// The counter value should be incremented every time the user clicks on a button. Tip: use the useState hook.
+// Make it so that the initial value of the counter and the increment amount are passed as props to the component.
+// Add a decrement button and a reset button to the Counter component. The decrement button should decrement the counter
+//  by the amount passed as a prop, and the reset button should reset the counter to the initial value passed as a prop.
+// Create a new component called CounterDisplay passing it the counter state variable as a count prop, that should be
+// rendered within an h2 tag. The CounterDisplay component should be rendered within the Counter component.
+//  When calling "setter" function to increment the counter, should the parameter be a function or an immediate value?
+//  Why? Write your answers in a comment
 
-function App() {
-  const [count, setCount] = useState(0)
-
+import Counter from "./Counter";
+export default function App() {
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <Counter />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
-
-export default App
