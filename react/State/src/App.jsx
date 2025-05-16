@@ -13,7 +13,7 @@ export default function App() {
   return (
     <>
       <div>
-        <Counter />
+        <Counter initialValue={0} changeValue={1} />
       </div>
     </>
   );
