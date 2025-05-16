@@ -1,35 +1,8 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// Create a Counter function component and create a new state variable called counter initialized to 0.
+// The Counter component should render the counter value within an h2 tag, and the counter value should be incremented
+// every time the user clicks on a button.
+// Make it so that the initial value of the counter and the increment amount are passed as props to the component.
+// Add a side effect to the Counter component from first State exercise that prints the current value of the counter inside the console.
+// Build a Clock component that renders the current time within an h2 tag. Use the useEffect hook to update the time every second.
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App
+export default function App() {}
