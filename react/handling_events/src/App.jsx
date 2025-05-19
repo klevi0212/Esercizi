@@ -1,35 +1,14 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// Create a MouseClicker component that contains a button with a name attribute set to the "one" string.
+// Attach an event handler to the button that prints the name attribute to the console when clicked by reading the event.target.name property.
+// Add another button with the name attribute set to "two" and an image inside the button and add another event handler to it that
+// prints the src of the image to the console when clicked.
+// How can you prevent the name attribute of the button from being printed to the console when the image is clicked?
 
-function App() {
-  const [count, setCount] = useState(0)
-
+import MouseClicker from "./MouseClicker";
+export default function App() {
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <MouseClicker />
     </>
-  )
+  );
 }
-
-export default App
