@@ -1,0 +1,20 @@
+.bubble {
+  max-width: 70%;
+  padding: 10px 15px;
+  border-radius: 50px;
+  word-break: break-all;
+}
+
+.bubble.sent {
+  align-self: flex-end;
+  background-color: pink;
+  color: black;
+  border-bottom-right-radius: 0;
+}
+
+.bubble.received {
+  align-self: flex-start;
+  background-color: lightblue;
+  color: black;
+  border-bottom-left-radius: 0;
+}
