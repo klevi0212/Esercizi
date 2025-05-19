@@ -5,4 +5,14 @@
 // Add a side effect to the Counter component from first State exercise that prints the current value of the counter inside the console.
 // Build a Clock component that renders the current time within an h2 tag. Use the useEffect hook to update the time every second.
 
-export default function App() {}
+import Clock from "../clock";
+import Counter from "./Counter";
+
+export default function App() {
+  return (
+    <div>
+      <Counter />
+      <Clock />
+    </div>
+  );
+}
