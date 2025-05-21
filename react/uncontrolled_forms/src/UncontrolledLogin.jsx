@@ -22,9 +22,17 @@ export default function UncontrolledLogin() {
     <>
       <form onSubmit={onLogin}>
         <label>Username</label>
-        <input type="text" name="username" />
+        <input
+          type="text"
+          name="username"
+          placeholder="Enter your username..."
+        />
         <label>Password</label>
-        <input type="password" name="password" />
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter your password..."
+        />
         <label>Remeber me</label>
         <input type="checkbox" name="session" />
         <button>Login</button>
