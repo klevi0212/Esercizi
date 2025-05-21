@@ -1,35 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// Create an uncontrolled component called UncontrolledLogin, containing three inputs: a username input, a password input and a remember
+// checkbox. Add a "login" button to the Login component
+// When clicked, the event handler attached to the button should call an onLogin function that will print the values of the inputs.
+// Attempt to access the values of the form using the DOM API by reading the event.target of the onSubmit event handler.
+// Add a second button that call a loginWithFormData function that prints the values of the inputs by using the FormData API.
 
-function App() {
-  const [count, setCount] = useState(0)
-
+import "./App.css";
+import UncontrolledLogin from "./UncontrolledLogin";
+export default function App() {
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <UncontrolledLogin />
     </>
-  )
+  );
 }
-
-export default App
