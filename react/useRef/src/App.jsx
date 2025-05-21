@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// Create a FocusableInput component that renders an input tag. As soon as the component renders, the input tag should be focused automatically.
+// Using StrictMode, create a component with an effect that prints a message only when the component is mounted the first time.
+// Use a ref to keep track of whether the component is mounted or not.
+import { useEffect } from "react";
+import "./App.css";
+import FocusableInput from "./FocusableInput";
+import { useRef } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const mountedRef = useRef(false);
+  useEffect(() => {
+    if (!mountedRef.current) {
+      console.log("The component is mounted for the first time ");
+      mountedRef.current = true;
+    }
+  }, []);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <FocusableInput />
     </>
-  )
+  );
 }
-
-export default App
+// useEffect(() => {
+//     if (!mountedRef.current) {
+//       console.log("The component is mounted for the first time");
+//       mountedRef.current = true;
+//     }
+//   }, []);
