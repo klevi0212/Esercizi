@@ -10,8 +10,10 @@ export default function App() {
   const mountedRef = useRef(false);
   useEffect(() => {
     if (!mountedRef.current) {
-      console.log("The component is mounted for the first time ");
+      console.log("The component is mounted for the first time! ");
       mountedRef.current = true;
+    } else {
+      console.log("The componente is mounted for the second time!");
     }
   }, []);
 
@@ -21,9 +23,3 @@ export default function App() {
     </>
   );
 }
-// useEffect(() => {
-//     if (!mountedRef.current) {
-//       console.log("The component is mounted for the first time");
-//       mountedRef.current = true;
-//     }
-//   }, []);

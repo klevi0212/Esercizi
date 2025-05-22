@@ -4,7 +4,7 @@ import { useRef } from "react";
 export default function FocusableInput() {
   const inputRef = useRef(null);
   useEffect(() => {
-    inputRef.current.focus();
+    inputRef.current?.focus(); //il ? è un simil operatore ternario
   }, []);
   return (
     <>
