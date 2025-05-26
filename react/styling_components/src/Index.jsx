@@ -10,9 +10,9 @@ import Login from "./Login";
 export default function Index() {
   return (
     <>
-      <Welcome name="Giovanni" welcomeName={"welcome"} />
+      <Welcome name="Giovanni" />
       <CounterDisplay buttonName={"button"} />
-      <Login buttonName={"button"} loginButton={"loginButton"} />
+      <Login buttonName={"button"} />
     </>
   );
 }

@@ -48,7 +48,7 @@ export default function LoginComponent({ onLogin }) {
           type="submit"
           disabled={!password && !username}
           className={`${styles.button} ${passwordClass}`} //qui abbiamo una classe button che andiamo a concatenare con la costante
-          // passwordClass trasfromata in classe
+          // passwordClass
         >
           Login!
         </button>
