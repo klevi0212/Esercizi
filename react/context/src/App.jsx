@@ -10,16 +10,28 @@ import Hello from "./Hello";
 import LanguageContext from "./LanguageContext";
 export default function App() {
   const [language, setLanguage] = useState("it");
+  const languages = [
+    { code: "it", label: "Italiano" },
+    { code: "en", label: "English" },
+    { code: "fr", label: "Francais" },
+  ];
   return (
     <div className="wrapper">
+      <label>Change language by selecting it: </label>
+      <select value={language} onChange={(e) => setLanguage(e.target.value)}>
+        {languages.map((l) => {
+          return (
+            <option value={l.code} key={l.code}>
+              {l.label}
+            </option>
+          );
+        })}
+
+        {/* <option value="en">English</option>
+        <option value="fr">Francais</option> */}
+      </select>
       <LanguageContext.Provider value={language}>
         <Hello />
-        <label>Change language by selecting it: </label>
-        <select value={language} onChange={(e) => setLanguage(e.target.value)}>
-          <option value="it">Italiano</option>
-          <option value="en">English</option>
-          <option value="fr">Francais</option>
-        </select>
       </LanguageContext.Provider>
     </div>
   );
