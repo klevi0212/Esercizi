@@ -6,12 +6,18 @@
 // Extract the "Your age is " message into a new component called Age and render it within the Welcome component.
 // Pass to the Age component the age prop that Welcome is receiving from the App component.
 
+import { Routes, Route } from "react-router-dom";
 import Welcome from "./Welcome";
+import Counter from "./Counter";
 function App() {
   return (
-    <>
-      <Welcome name="Giovanni" age={30} />
-    </>
+    <Routes>
+      <Route path="/" element={<Welcome name="Giovanni" age={30} />} />
+      <Route
+        path="/counter"
+        element={<Counter initialValue={0} changeValue={1} />}
+      />
+    </Routes>
   );
 }
 export default App;
