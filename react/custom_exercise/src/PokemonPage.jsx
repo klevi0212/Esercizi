@@ -3,6 +3,8 @@ import useGetPokemon from "./useGetPokemon";
 
 export default function PokemonPage() {
   const { pokemon } = useParams();
+  // const location = useLocation();
+  // const pokemon = location.state; altro modo per fare quello che fa useParams
   const { data, error, isLoading } = useGetPokemon(pokemon);
   const navigate = useNavigate();
   if (isLoading) return <p>Loading...</p>;

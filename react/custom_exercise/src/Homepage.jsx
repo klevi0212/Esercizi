@@ -10,6 +10,7 @@ export default function Homepage() {
     e.preventDefault();
     if (inputPokemon) {
       navigate(`/${inputPokemon}`);
+      // navigate("/pokemon", { state: inputPokemon }); altro modo per fare quello che fa useParams
     }
   }
   function handleChange(e) {
