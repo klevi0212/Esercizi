@@ -27,10 +27,12 @@ function languagesSpoken(
 
   console.log(language1);
 
-  if (typeof language2 != undefined) {
+  if (typeof language2 !== "undefined") {
+    // quando usiamo il condizionale undefined lo mettiamo sempre sottoforma di stringa. Anche se dobbiamo mettere un altro valore primitivo(string, number, null ecc) bisogna smepre metterlo sotto forma di stringa.
     console.log(language2);
+  } else {
+    console.log("There is no second language in this Country");
   }
-  //   console.log(language2);
 }
 
 languagesSpoken("Colombia", "Spanish", "English");
