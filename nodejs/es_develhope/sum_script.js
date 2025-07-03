@@ -1,4 +1,4 @@
 function sum(a, b) {
-  console.log(a + b);
+  return a + b;
 }
-sum(5, 6);
+console.log(sum(5, 6));
