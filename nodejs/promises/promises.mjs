@@ -17,27 +17,38 @@ function luckyDraw(player) {
     });
   });
 }
-const player1 = "Joe";
-const player2 = "Caroline";
-const player3 = "Sabrina";
-luckyDraw(player1)
-  .then((player1) => {
-    console.log(player1);
-    return luckyDraw(player2);
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-  .then((player2) => {
-    console.log(player2);
-    return luckyDraw(player3);
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-  .then((player3) => {
-    console.log(player3);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+// const player1 = "Joe";
+// const player2 = "Caroline";
+// const player3 = "Sabrina";
+// luckyDraw(player1)
+//   .then((player1) => {
+//     console.log(player1);
+//     return luckyDraw(player2);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .then((player2) => {
+//     console.log(player2);
+//     return luckyDraw(player3);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .then((player3) => {
+//     console.log(player3);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
+
+const players = ["Joe", "Caroline", "Sabrina"];
+players.forEach((player) => {
+  luckyDraw(player)
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
