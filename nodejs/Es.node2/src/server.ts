@@ -11,7 +11,6 @@ import "express-async-errors";
 import morgan from "morgan";
 import dotenv from "dotenv";
 
-// Dummy database with initial data:
 dotenv.config();
 const app = express();
 const port = process.env.PORT;
@@ -35,6 +34,40 @@ let planets: Planets = [
     name: "Mars",
   },
 ];
+
+app.get("/api/planets", (req, res) => {
+  res.status(200).json(planets);
+});
+
+app.get("/api/planets:id", (req, res) => {
+  const { id } = req.params;
+  const planet = planets.find((p) => p.id === Number(id));
+  res.status(200).json(planet);
+});
+
+app.post("/api/planets", (req, res) => {
+  const { id, name } = req.body;
+  const newPlanet = { id, name };
+  planets = [...planets, newPlanet];
+  console.log(planets);
+  res.status(201).json({ msg: "The planet was created" });
+});
+
+app.put("/api/planets/:id", (req, res) => {
+  const { id } = req.params;
+  const { name } = req.body;
+  planets = planets.map((p) => (p.id === Number(id) ? { ...p, name } : p));
+  console.log(planets);
+  res.status(200).json({ msg: "The planet was updated" });
+});
+
+app.delete("/api/planets/:id", (req, res) => {
+  const { id } = req.params;
+  planets = planets.filter((p) => p.id !== Number(id));
+  console.log(planets);
+  res.status(200).json({ msg: "The planet was destroyed" });
+});
+
 app.listen(port, () => {
   console.log(`Server attivo sulla porta ${port}`);
 });
