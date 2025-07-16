@@ -10,6 +10,13 @@ import express, { Request, Response } from "express";
 import "express-async-errors";
 import morgan from "morgan";
 import dotenv from "dotenv";
+import {
+  deleteById,
+  getAll,
+  getOneById,
+  updateById,
+  create,
+} from "./controllers/planets.js";
 
 dotenv.config();
 const app = express();
@@ -35,38 +42,15 @@ let planets: Planets = [
   },
 ];
 
-app.get("/api/planets", (req, res) => {
-  res.status(200).json(planets);
-});
+app.get("/api/planets", getAll);
 
-app.get("/api/planets/:id", (req, res) => {
-  const { id } = req.params;
-  const planet = planets.find((p) => p.id === Number(id));
-  res.status(200).json(planet);
-});
+app.get("/api/planets/:id", getOneById);
 
-app.post("/api/planets", (req, res) => {
-  const { id, name } = req.body;
-  const newPlanet = { id, name };
-  planets = [...planets, newPlanet];
-  console.log(planets);
-  res.status(201).json({ msg: "The planet was created" });
-});
+app.post("/api/planets", create);
 
-app.put("/api/planets/:id", (req: Request, res: Response) => {
-  const { id } = req.params;
-  const { name } = req.body;
-  planets = planets.map((p) => (p.id === Number(id) ? { ...p, name } : p));
-  console.log(planets);
-  res.status(200).json({ msg: "The planet was updated" });
-});
+app.put("/api/planets/:id", updateById);
 
-app.delete("/api/planets/:id", (req, res) => {
-  // const { id } = req.params;
-  planets = planets.filter((p) => p.id !== Number(req.params.id));
-  console.log(planets);
-  res.status(200).json({ msg: "The planet was destroyed" });
-});
+app.delete("/api/planets/:id", deleteById);
 
 app.listen(port, () => {
   console.log(`Server attivo sulla porta ${port}`);
