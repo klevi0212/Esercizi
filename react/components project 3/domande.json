@@ -1,0 +1,10 @@
+[
+	{
+		"question": "Quale tag HTML si usa per creare un collegamento ipertestuale?",
+		"answers": ["<link>", "<href>", "<url>", "<a>"]
+	},
+	{
+		"question": "Qual è il tag corretto per creare una lista ordinata in HTML?",
+		"answers": ["<ol>", "<ul>", "<li>", "<list>"]
+	}
+]
