@@ -1,26 +1,45 @@
-import { useState } from "react"
-import questions from "../domande.json"
-export default function Quiz() {
-	const [index, setIndex] = useState(0)
-	const current = questions[index]
-	function handleClick() {
-		if (index < questions.length - 1) {
-			setIndex((prev) => prev + 1)
-		}
-	}
-	return (
-		<>
-			<div>
-				<h1>{current.question}</h1>
-				<ul>
-					{current.answers.map((answer, index) => (
-						<li key={index} onClick={handleClick}>
-							{answer}
-						</li>
-					))}
-				</ul>
-				<button onClick={handleClick}>next</button>
-			</div>
-		</>
-	)
-}
+// import { useState } from "react"
+// import questions from "../domande.json"
+// import { ChevronLeft } from "lucide-react"
+
+// export default function Quiz() {
+// 	const [index, setIndex] = useState(0)
+// 	const current = questions[index]
+// 	function handleClick() {
+// 		if (index < questions.length - 1) {
+// 			setIndex((prev) => prev + 1)
+// 		}
+// 	}
+// 	function handlePrevClick() {
+// 		if (index > 0) {
+// 			setIndex((prev) => prev - 1)
+// 		}
+// 	}
+// 	return (
+// 		<>
+// 			<div className="w-full h-screen bg-gradient-to-b from-purple-200 via-purple-400 to-purple-600">
+// 				<button
+// 					className=" ml-[30px] mt-[60px] p-1 rounded-full disabled:opacity-50"
+// 					onClick={handlePrevClick}
+// 				>
+// 					<ChevronLeft color="#BEA8FF" />
+// 				</button>
+// 				<div className="mb-[100px]">qui ci va la barra di scorrimento</div>
+// 				<div className="p-6 mt-[200px]">
+// 					<p className="text-3xl font-bold mt-[60px]">{current.question}</p>
+// 					<ul className="mt-[50px]">
+// 						{current.answers.map((answer, index) => (
+// 							<li
+// 								className=" text-2xl text-center border p-[10px] bg-my-white rounded-xl m-[25px] cursor-pointer transition-transform  duration-300 ease-in-out hover:scale-105"
+// 								key={index}
+// 								onClick={handleClick}
+// 							>
+// 								{answer}
+// 							</li>
+// 						))}
+// 					</ul>
+// 				</div>
+// 			</div>
+// 		</>
+// 	)
+// }

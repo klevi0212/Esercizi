@@ -17,6 +17,7 @@
 // Use Postman to test the routes.
 
 import { Request, Response } from "express";
+import Joi from "joi";
 type Planet = {
   id: number;
   name: string;
@@ -35,6 +36,11 @@ let planets: Planets = [
   },
 ];
 
+const planetSchema = Joi.object({
+  id: Joi.number().integer().required(),
+  name: Joi.string().required(),
+});
+
 const getAll = (req: Request, res: Response) => {
   res.status(200).json(planets);
 };
@@ -44,6 +50,11 @@ const getOneById = (req: Request, res: Response) => {
   res.status(200).json(planet);
 };
 const create = (req: Request, res: Response) => {
+  const { error } = planetSchema.validate(req.body);
+  if (error) {
+    console.log("Pianeta non creato");
+    return res.status(404).json({ msg: "Dati non completi" });
+  }
   const { id, name } = req.body;
   const newPlanet = { id, name };
   planets = [...planets, newPlanet];
