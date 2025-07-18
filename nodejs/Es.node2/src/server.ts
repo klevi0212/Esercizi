@@ -11,8 +11,10 @@ import "express-async-errors";
 import morgan from "morgan";
 import dotenv from "dotenv";
 import router from "./routes/planets.js";
+import setupDb from "./setupDb.js";
 
 dotenv.config();
+setupDb();
 const app = express();
 const port = process.env.PORT;
 app.use(express.json());
