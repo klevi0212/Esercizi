@@ -38,7 +38,15 @@
 // DELETE FROM planets WHERE id=$1;
 // Make sure that $1 is id.
 import pgPromise from "pg-promise";
+import dotenv from "dotenv";
 
 const pgp = pgPromise();
-const db = pgp("postgres://postgres:Postgres.2@localhost:5432/develhope");
+dotenv.config();
+const username = process.env.PS_USERNAME;
+const password = process.env.PS_PASSWORD;
+const porta = process.env.PS_PORT;
+const database = process.env.PS_DATABASE;
+const db = pgp(
+  `postgres://${username}:${password}@localhost:${porta}/${database}`
+);
 export default db;

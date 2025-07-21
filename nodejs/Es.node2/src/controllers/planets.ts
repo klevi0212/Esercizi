@@ -39,7 +39,7 @@ type Planet = {
 // ];
 
 const planetSchema = Joi.object({
-  id: Joi.number().integer().required(),
+  // id: Joi.number().integer().required(),
   name: Joi.string().required(),
 });
 
@@ -64,11 +64,11 @@ async function create(req: Request, res: Response) {
     console.log("Pianeta non creato");
     return res.status(404).json({ msg: "Dati non completi" });
   }
-  const { id, name } = req.body;
+  const { name } = req.body;
   // const newPlanet = { id, name };
   // planets = [...planets, newPlanet];
   // console.log(planets);
-  await db.none("INSERT INTO planets (name) VALUES ($1),[name]");
+  await db.none("INSERT INTO planets (name) VALUES ($1)", [name]);
   res.status(201).json({ msg: "The planet was created with success!" });
 }
 async function updateById(req: Request, res: Response) {
@@ -76,13 +76,15 @@ async function updateById(req: Request, res: Response) {
   const { name } = req.body;
   // planets = planets.map((p) => (p.id === Number(id) ? { ...p, name } : p));
   // console.log(planets);
-  const result = await db.result("UPDATE planets SET name=$1 WHERE id=$2", [
-    id,
-    name,
-  ]);
+  console.log("debugg");
+  const result = await db.result(
+    "UPDATE planets SET name = $1 WHERE id = $2;",
+    [name, id]
+  );
   if (result.rowCount === 0) {
     return res.status(404).json({ msg: "404: Planet not found!" });
   }
+  console.log(result.rowCount);
   res.status(200).json({ msg: "The planet was updated!" });
 }
 async function deleteById(req: Request, res: Response) {
