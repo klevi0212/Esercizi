@@ -97,4 +97,16 @@ async function deleteById(req: Request, res: Response) {
   }
   res.status(200).json({ msg: "The planet was destroyed!" });
 }
-export { getAll, getOneById, create, updateById, deleteById };
+
+async function createImage(req: Request, res: Response) {
+  const { id } = req.params;
+  const fileName = req.file?.path;
+  if (fileName) {
+    db.none(`UPDATE planets SET image=$2 WHERE id=$1`, [id, fileName]);
+    res.status(201).json({ msg: "Planet image was uploaded succesfully!" });
+  } else {
+    res.status(404).json({ msg: "Planet image failed to upload!" });
+  }
+}
+
+export { getAll, getOneById, create, updateById, deleteById, createImage };
