@@ -26,4 +26,17 @@ async function logIn(req: Request, res:Response){
         res.status(404).json({msg: "Username or password incorrect."})
     }
 }
-export {logIn}
+async function signUp(req:Request, res:Response){
+    const{username, password} = req.body
+    const user = await db.oneOrNone('SELECT * FROM users WHERE username=$1', username)
+
+    if(user){
+        res.status(409).json({msg: "Username already in use!"})
+    }else{
+        const{id} = await db.one(
+            'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id', [username, password]
+        )
+        res.status(201).json({id, msg:"Signup successful. Now you can log in."})
+    }
+}
+export {logIn, signUp}

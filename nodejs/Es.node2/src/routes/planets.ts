@@ -6,24 +6,21 @@ import {
   getOneById,
   updateById,
 } from "../controllers/planets.js";
-import { logIn } from "../controllers/users.js";
 import express from "express";
 import { upload } from "../storage.js";
 
-const router = express.Router();
+const routerPlanet = express.Router();
 
-router.get("/planets/", getAll);
+routerPlanet.get("/", getAll);
 
-router.get("/planets/:id", getOneById);
+routerPlanet.get("/:id", getOneById);
 
-router.post("/planets/", create);
+routerPlanet.post("/", create);
 
-router.put("/planets/:id", updateById);
+routerPlanet.put(":id", updateById);
 
-router.delete("/planets/:id", deleteById);
+routerPlanet.delete("/:id", deleteById);
 
-router.post("/planets/:id/image", upload.single("image"), createImage);
+routerPlanet.post("/:id/image", upload.single("image"), createImage);
 
-router.post("/users/login", logIn)
-
-export default router;
+export default routerPlanet;

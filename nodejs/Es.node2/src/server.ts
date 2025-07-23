@@ -10,8 +10,9 @@ import express from "express";
 import "express-async-errors";
 import morgan from "morgan";
 import dotenv from "dotenv";
-import router from "./routes/planets.js";
 import setupDb from "./setupDb.js";
+import routerPlanet from "./routes/planets.js";
+import routerUser from "./routes/users.js";
 
 dotenv.config();
 setupDb();
@@ -20,7 +21,8 @@ const port = process.env.PORT;
 app.use(express.json());
 app.use(morgan("dev"));
 
-app.use("/api", router);
+app.use("/api/planets", routerPlanet);
+app.use("/api/users", routerUser)
 
 app.listen(port, () => {
   console.log(`Server attivo sulla porta ${port}`);
