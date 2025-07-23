@@ -20,7 +20,7 @@ const port = process.env.PORT;
 app.use(express.json());
 app.use(morgan("dev"));
 
-app.use("/api/planets", router);
+app.use("/api", router);
 
 app.listen(port, () => {
   console.log(`Server attivo sulla porta ${port}`);

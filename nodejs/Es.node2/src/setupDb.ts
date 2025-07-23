@@ -23,7 +23,16 @@ export default async function setupDb() {
         CREATE TABLE planets (
         id SERIAL PRIMARY KEY,
         name TEXT NOT NULL,
-        image TEXT)`);
+        image TEXT);
+        
+        DROP TABLE IF EXISTS users;
+        CREATE TABLE users(
+        id SERIAL NOT NULL PRIMARY KEY,
+        username TEXT NOT NULL,
+        password TEXT NOT NULL,
+        token TEXT);
+        `);
   await db.none("INSERT INTO planets (name) VALUES ('Earth'), ('Mars')");
   console.log("Database completato");
+  await db.none("INSERT INTO users (username, password) VALUES ('klevi.02', 'helloworld')")
 }
