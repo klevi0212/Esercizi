@@ -13,6 +13,7 @@ import dotenv from "dotenv";
 import setupDb from "./setupDb.js";
 import routerPlanet from "./routes/planets.js";
 import routerUser from "./routes/users.js";
+import "./passport.js";
 
 dotenv.config();
 setupDb();

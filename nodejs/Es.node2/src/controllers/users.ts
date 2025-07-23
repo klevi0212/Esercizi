@@ -17,11 +17,11 @@ async function logIn(req: Request, res:Response){
         }
         const {SECRET = ""}= process.env;
         const token = jtw.sign(payload, SECRET)
-        console.log(token)
 
 
         await db.none('UPDATE users SET token=$2 WHERE id=$1', [user.id, token])
         res.status(200).json({id:user.id, username, token})
+        console.log("pippo", token)
     }else{
         res.status(404).json({msg: "Username or password incorrect."})
     }
@@ -39,4 +39,10 @@ async function signUp(req:Request, res:Response){
         res.status(201).json({id, msg:"Signup successful. Now you can log in."})
     }
 }
-export {logIn, signUp}
+
+async function logOut(req:Request, res:Response){
+    const user:any = req.user;
+    await db.none('UPDATE users SET token=$2 WHERE id=$1', [user?.id, null])
+    res.status(200).json({msg:"You have logout with success."})
+}
+export {logIn, signUp, logOut}

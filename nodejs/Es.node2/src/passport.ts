@@ -13,7 +13,7 @@ passport.use(
             secretOrKey: SECRET,
         },
         async(payload , done )=>{
-            const user = db.one('SELECT * FROM users WHERE id=$1', payload.id);
+            const user = await db.one('SELECT * FROM users WHERE id=$1', payload.id);
             console.log(user);
             try {
                 return user ? done (null, user): done(new Error("User not found."));
